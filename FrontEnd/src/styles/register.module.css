@@ -1,0 +1,119 @@
+.register_container_main{
+    width: 100%;
+    height: 655px;
+    display:flex;
+}
+
+.btrix_poster_container{
+    width:45%;
+    background-color: #4edcf9;
+    padding-top:60px;
+    padding-left:60px;
+}
+.btrix_logo_div{
+    display: flex;
+    justify-content: space-between;
+    font-family: Montserrat,sans-serif;
+}
+.btrix_back_to_site_text{
+    color:#ffff;
+    padding-top: 12px;
+    padding-right: 10%;
+
+
+    cursor: pointer;
+
+}
+.btrix_text_container{
+    margin-top: 35%;
+    font-family: Montserrat,sans-serif;
+    position: relative;
+    height:auto;
+}
+ .btrix_text_set_main{
+    font-size: 44px;
+    font-weight: 500;
+    color:#ffff;
+    text-align: left;
+    line-height: 50px;
+ }
+ .btrix_text_under{
+    margin-top: 5%;
+    text-align: left;
+    color: #ffff;
+    font-size: 25px;
+    font-weight: 400;
+ }
+.btrix_register_container{
+    width: 55%;
+    padding-left: 8%;
+    padding-right: 5%;
+
+    border: 1px solid black;
+
+
+}
+.btrix_registration_text_div{
+    border-bottom: 1px solid #eeeff0;
+    padding-bottom: 7%;
+    margin-top: 23%;
+    font-size: 31px;
+    font-family: Montserrat,sans-serif;
+    font-weight: 500;
+    text-align: left;
+}
+.btrix_email_password_container{
+    font-family: Montserrat,sans-serif;
+    margin-top: 5%;
+}
+.btrix_email_password_text_set{
+    font-weight: 400;
+    font-size: 20px;
+    color: #525c81;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.btrix_input_field_set{
+    border: 1px solid #d1d4d8;
+    width: 100%;
+    height:50px;
+    margin-bottom: 10px;
+    padding: 5px 13px;
+}
+.btrix_register_btn_div{
+    border-top: 1px solid #eeeff0;
+    text-align: left;
+    margin-top: 5%;
+}
+.btrix_register_btn{
+    text-transform: uppercase;
+    background-color:  #9dcf00;
+    color: white;
+    padding: 7px 15px;
+    font-size: 17px;
+    font-weight: 500;
+    height: 50px;
+    border-radius: 18px;
+    margin-left: 30px;
+    margin-top: 15px;
+
+    transition: background-color ease-in 0.3s;
+
+
+}
+.btrix_register_btn_disabled{
+    text-transform: uppercase;
+    background-color:  #d8ec99;
+    color: white;
+    padding: 7px 15px;
+    font-size: 17px;
+    font-weight: 500;
+    height: 50px;
+    border-radius: 18px;
+    margin-left: 30px;
+    margin-top: 15px;
+    cursor:not-allowed;
+
+    transition: background-color ease-out 0.2s;
+
+}
