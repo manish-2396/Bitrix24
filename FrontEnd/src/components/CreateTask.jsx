@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/createtask.module.css";
 import "react-calendar/dist/Calendar.css";
 import Calendar from "react-calendar";
@@ -22,21 +22,36 @@ import {
   HStack,
   Icon,
 } from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
 import { MdAdd } from "react-icons/md";
 import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
+const taskInfo = {
+  employeeName: "",
+  info: "",
+  startTime: "",
+  endTime: "",
+};
 
 const CreateTask = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+  const toast = useToast();
+  const token = localStorage.getItem("token");
   const [value, onChange] = useState(new Date());
+  const [task, setTask] = useState(taskInfo);
   const [isStartCalendarOpen, setIsStartCalendarOpen] = useState(false);
   const [isEndCalendarOpen, setIsEndCalendarOpen] = useState(false);
-  const [data, setData] = useState("");
+  const [employees, setEmployees] = useState([]);
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
+  const [employeeName, setEmployeeName] = useState("");
+  const [isTaskCreated, setIsTaskCreated] = useState("");
+  const navigate = useNavigate();
+  console.log(task);
 
-  console.log(startTime);
-  console.log(endTime);
   const handleStartCalendar = () => {
     setIsStartCalendarOpen(!isStartCalendarOpen);
   };
@@ -45,10 +60,58 @@ const CreateTask = () => {
     setIsEndCalendarOpen(!isEndCalendarOpen);
   };
 
-  const handleAddEmployee=()=>{
+  const handleInfo = (e) => {
+    let { name, value } = e.target;
+    setTask({ ...task, [name]: value });
+  };
 
-  }
+  const handleAddTask = () => {
+    setTask({
+      ...task,
+      startTime: startTime,
+      endTime: endTime,
+      employeeName: employeeName,
+    });
+    fetch("https://bitrix24.onrender.com//task/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: token,
+      },
+      body: task,
+    })
+      .then((res) => res.json())
+      .then((res) => setIsTaskCreated(res.message));
+  };
 
+  const handleAddEmployee = (name) => {
+    setEmployeeName(name);
+  };
+
+  const handleGetEmployee = () => {
+    fetch("https://bitrix24.onrender.com/employee", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: token,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setEmployees(res);
+      });
+  };
+  useEffect(() => {
+    if (isTaskCreated == "task created successfully") {
+      toast({
+        title: "Task created.",
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+      });
+      navigate("/homepage");
+    }
+  }, [isTaskCreated]);
   return (
     <div>
       <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
@@ -70,23 +133,62 @@ const CreateTask = () => {
             <div className={styles.create_task_container_main}>
               <div className={styles.task_heading_div}>
                 <input
-                  onChange={(e) => setData(e.target.value)}
+                  onChange={handleInfo}
                   className={styles.task_input_box}
                   type="text"
+                  name="info"
+                  value={task.info}
                   placeholder="Things to do"
                 />
               </div>
-              <div className={styles.task_info_container}>
+              <div
+                onClick={() => {
+                  setEmployees([]);
+                }}
+                className={styles.task_info_container}
+              >
                 <div className={styles.employee_tag_box}>
                   <p className={styles.set_text_responsible}>
                     Responsible Person
                   </p>
                   <Box className={styles.set_employee_tag_box}>
-                    <Tag size="lg" variant="subtle">
+                    {employeeName != "" ? (
+                      <Tag size="lg" variant="subtle" colorScheme="green">
+                        <TagLabel>{employeeName}</TagLabel>
+                        <TagCloseButton
+                          onClick={() => {
+                            setEmployeeName("");
+                          }}
+                        />
+                      </Tag>
+                    ) : null}
+                    <Tag onClick={handleGetEmployee} size="lg" variant="subtle">
                       <TagLeftIcon boxSize="12px" as={MdAdd} />
-                      <TagLabel onClick={handleAddEmployee}>add </TagLabel>
+                      <p>add</p>
                     </Tag>
                   </Box>
+                </div>
+                <div className={styles.employees_display_div}>
+                  {employees.map((e) => (
+                    <div
+                      style={{
+                        display: "flex",
+                        borderBottom: "1px solid #c6cdd3",
+                        padding: "10px",
+                      }}
+                    >
+                      <Icon marginRight="10px" as={FaUserCircle} />
+                      <p
+                        onClick={() => handleAddEmployee(e.name)}
+                        name="employee"
+                        value={e.name}
+                        style={{ marginRight: "10%" }}
+                        key={e._id}
+                      >
+                        {e.name}
+                      </p>
+                    </div>
+                  ))}
                 </div>
                 <div className={styles.deadline_box}>
                   <p className={styles.set_text_responsible_1}>Deadline</p>
@@ -97,10 +199,8 @@ const CreateTask = () => {
                       className={styles.calendar_stack}
                     >
                       <p className={styles.set_date_calendar}>{startTime}</p>
-                      
-                      <Icon
-                        as={FaRegCalendarAlt}
-                      />
+
+                      <Icon as={FaRegCalendarAlt} />
                     </HStack>
                   </div>
                   <div className={styles.start_time_container}>
@@ -110,9 +210,7 @@ const CreateTask = () => {
                       className={styles.calendar_stack}
                     >
                       <p className={styles.set_date_calendar}>{endTime}</p>
-                      <Icon
-                        as={FaRegCalendarAlt}
-                      />
+                      <Icon as={FaRegCalendarAlt} />
                     </HStack>
                   </div>
                 </div>
@@ -147,7 +245,12 @@ const CreateTask = () => {
                   ""
                 )}
                 <div className={styles.add_task_btn_div}>
-                  <button className={styles.add_task_btn}>Add Task</button>
+                  <button
+                    onClick={handleAddTask}
+                    className={styles.add_task_btn}
+                  >
+                    Add Task
+                  </button>
                 </div>
               </div>
             </div>

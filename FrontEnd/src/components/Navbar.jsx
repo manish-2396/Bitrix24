@@ -39,7 +39,7 @@ const Navbar = () => {
 
       <Show above="md">
         <Flex>
-          <Box p='4' maxW="15px" >
+          <Box p='4' maxW="4rem" >
             <Image src={bitrix24} />
           </Box>
           <Spacer />

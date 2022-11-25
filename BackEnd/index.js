@@ -4,6 +4,7 @@ const { authentication } = require("./middleware/authentication.js");
 const { userController } = require("./Routes/User.routes.js");
 const cors = require("cors");
 const { employeeController } = require("./Routes/Employee.routes.js");
+const { empTaskController } = require("./Routes/EmpTask.routes.js");
 require("dotenv").config();
 const app = express();
 app.use(cors());
@@ -16,9 +17,10 @@ app.get("/", (req, res) => {
 app.use("/user", userController);
 app.use(authentication);
 app.use("/employee", employeeController);
+app.use("/task", empTaskController);
+
 
 const PORT = process.env.PORT || 8080;
-
 app.listen(PORT, async (req, res) => {
 	try {
 		await connection;

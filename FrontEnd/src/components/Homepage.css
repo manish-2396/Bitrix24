@@ -77,6 +77,7 @@ body {
 .banner2 {
   display: flex;
   width: 100vw;
+  height: auto;
   flex-direction: row;
   margin: 0 auto 0 auto;
   justify-content: space-evenly;
@@ -100,6 +101,7 @@ body {
   display: flex;
   height: auto;
   width: 40vw;
+ line-height:22px ;
   flex-direction: column;;
 }
 .greenCheck {
@@ -115,6 +117,7 @@ body {
   height: 25px;
   width: 25px;
   border-radius: 50%;
+  background:  #2fc7f7;
 }
 .detailImg{
   margin:  auto ;
@@ -132,6 +135,20 @@ body {
   flex-direction: row;
   background-color: rgb(228, 240, 250);
   
+}
+.blueCheckbox {
+  
+  /* border: 1px solid red; */
+  list-style: none;
+  font-size: 20px;
+  font-weight: normal;
+  color: #262626;
+  display: flex;
+}
+.blueCheckbox img {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
 }
 
 @media only screen and (max-width : 680px) {

@@ -1,0 +1,162 @@
+.rightIcon {
+  height: 60px;
+  width: 100%;
+  font-size: 25px;
+  text-align: center;
+  color: white;
+  position: relative;
+  transition: all 0.6s ease;
+}
+.logoBorder {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  background-color: rgb(47, 129, 199);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.rightIcon:hover {
+  background-color:rgb(52, 95, 152);
+}
+
+/* slidebar */
+
+.mainContainer {
+  /* border: 3px solid red; */
+  height: auto;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  background-image: url(https://b24-chnk01.bitrix24.in/bitrix/templates/bitrix24/themes/light/atmosphere/atmosphere2.jpg);
+  position: fixed;
+}
+.leftSlider {
+  /* border: 1px solid red; */
+  color: rgba(255, 255, 255, 0.701);
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+  height: 100vh;
+  width: 5%;
+}
+.middleContainer {
+  /* border: 1px solid white; */
+  height: 200vh;
+  width: 90%;
+  position: st;
+  scroll-behavior: smooth;
+}
+.rightSlider {
+  /* border: 1px solid red; */
+  height: 100vh;
+  width: 5%;
+}
+/* Navbar....... */
+.navbar {
+  height: 65px;
+  width: 100%;
+
+  /* border: 1px solid red; */
+  border-bottom: 1px solid white;
+  display: flex;
+
+  /* border: 1px solid red; */
+}
+.navbar1 {
+  width: 100%;
+  height: 55px;
+  background-color: #ffff;
+  padding-left: 20px;
+  padding-top: 17px;
+  color: #545c6a;
+  font-size: 15px;
+  font-family: "OpenSans-Semibold", "Helvetica Neue", Arial, Helvetica,
+    sans-serif;
+  font-weight: 530;
+  display: flex;
+  /* border: 1px solid red; */
+}
+.navbar2 {
+  height: 70px;
+  width: 100%;
+  /* border: 1px solid red; */
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.bitrixLogo {
+  /* border: 1px solid red; */
+  height: 40px;
+  width: 120px;
+  margin-top: 1%;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.logoSpan {
+  color: #fff;
+  margin-right: 7px;
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.logoSpan2 {
+  color: #2fc6f7;
+  font-weight: bold;
+  font-size: 25px;
+}
+.hovering:hover{
+  background-color: rgb(89,108,141);
+}
+.navbar_search {
+  /* border: 1px solid red; */
+  margin-left: 100px;
+  width: 250px;
+  height: 40px;
+  margin-top: 1.2%;
+}
+.real_time {
+  /* border: 1px solid red; */
+  width: 180px;
+  color: white;
+  font-size: 30px;
+  height: 100%;
+  padding-top: 8px;
+  margin-left: 20px;
+}
+.navbar_email {
+  /* border: 1px solid red; */
+  width: 250px;
+  padding-top: 14px;
+  height: 100%;
+  display: flex;
+  color: white;
+  gap: 10px;
+  transition: all 0.9s ease;
+}
+.navbar_email:hover {
+  background-color: rgb(52, 95, 152);
+}
+.upgrade_button {
+  /* border: 1px solid red; */
+  width: 150px;
+  height: 100%;
+  padding-top: 15px;
+  margin-left: 10px;
+}
+
+/* .navbar_email:hover{
+  background-color: rgb(186, 179, 179);
+} */
+
+.tasks {
+  margin-top: 25px;
+  width: 100%;
+  height: auto;
+  background-color: rgb(245, 250, 253);
+  color: #525c69;
+}

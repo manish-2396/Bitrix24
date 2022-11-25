@@ -98,42 +98,42 @@ const Homepag = () => {
             <UnorderedList>
               <ListItem className="greenCheck">
                 <img
-                  src="https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg?ip=x480"
+                  src="https://e7.pngegg.com/pngimages/930/741/png-clipart-round-green-check-mark-illustration-check-mark-bottle-material-green-tick-miscellaneous-angle.png"
                   alt=""
                 />
                 <span>Replaces all your current SaaS solutions</span>
               </ListItem>
               <ListItem className="greenCheck">
                 <img
-                  src="https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg?ip=x480"
+                  src="https://e7.pngegg.com/pngimages/930/741/png-clipart-round-green-check-mark-illustration-check-mark-bottle-material-green-tick-miscellaneous-angle.png"
                   alt=""
                 />
                 <span>Free forever for unlimited users</span>
               </ListItem>
               <ListItem className="greenCheck">
                 <img
-                  src="https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg?ip=x480"
+                  src="https://e7.pngegg.com/pngimages/930/741/png-clipart-round-green-check-mark-illustration-check-mark-bottle-material-green-tick-miscellaneous-angle.png"
                   alt=""
                 />
                 <span>Easy to migrate your data from other systems</span>
               </ListItem>
               <ListItem className="greenCheck">
                 <img
-                  src="https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg?ip=x480"
+                  src="https://e7.pngegg.com/pngimages/930/741/png-clipart-round-green-check-mark-illustration-check-mark-bottle-material-green-tick-miscellaneous-angle.png"
                   alt=""
                 />
                 <span>Integrated with all your favorite services and apps</span>
               </ListItem>
               <ListItem className="greenCheck">
                 <img
-                  src="https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg?ip=x480"
+                  src="https://e7.pngegg.com/pngimages/930/741/png-clipart-round-green-check-mark-illustration-check-mark-bottle-material-green-tick-miscellaneous-angle.png"
                   alt=""
                 />
                 <span>Used, loved, and trusted by 10,000,000+ users.</span>
               </ListItem>
               <ListItem className="greenCheck">
                 <img
-                  src="https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg?ip=x480"
+                  src="https://e7.pngegg.com/pngimages/930/741/png-clipart-round-green-check-mark-illustration-check-mark-bottle-material-green-tick-miscellaneous-angle.png"
                   alt=""
                 />
                 <span>
@@ -192,30 +192,30 @@ const Homepag = () => {
           </Box>
           <Box className="details">
             <UnorderedList color="#0ebaba" spacing="3" textAlign="left">
-              <ListItem className="greenCheck">
+              <ListItem className="blueCheckbox">
                 <img src="https://i.stack.imgur.com/bGgyE.png" alt="" />
                 <span>Increased service performance and speed</span>
               </ListItem>
-              <ListItem className="greenCheck">
+              <ListItem className="blueCheckbox">
                 <img src="https://i.stack.imgur.com/bGgyE.png" alt="" />
                 <span>Hosted on your own server</span>
               </ListItem>
-              <ListItem className="greenCheck">
+              <ListItem className="blueCheckbox">
                 <img src="https://i.stack.imgur.com/bGgyE.png" alt="" />
                 <span>Enhanced security settings</span>
               </ListItem>
-              <ListItem className="greenCheck">
+              <ListItem className="blueCheckbox">
                 <img src="https://i.stack.imgur.com/bGgyE.png" alt="" />
                 <span>
                   Fully customizable: fonts, colors, menus, texts, source code,
                   etc.
                 </span>
               </ListItem>
-              <ListItem className="greenCheck">
+              <ListItem className="blueCheckbox">
                 <img src="https://i.stack.imgur.com/bGgyE.png" alt="" />
                 <span>Easily scalable</span>
               </ListItem>
-              <ListItem className="greenCheck">
+              <ListItem className="blueCheckbox">
                 <img src="https://i.stack.imgur.com/bGgyE.png" alt="" />
                 <span>100+ third-party integrations</span>
               </ListItem>

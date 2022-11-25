@@ -1,8 +1,7 @@
-
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "../styles/register.module.css";
-
+import { useToast } from "@chakra-ui/react";
 
 const initData = {
   email: "",
@@ -10,11 +9,12 @@ const initData = {
 };
 
 const Login = () => {
-
   const [userLogin, setUserLogin] = useState(initData);
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState({ msg: "", token: "" });
+  const toast = useToast();
   const navigate = useNavigate();
-
+  console.log(userLogin);
+  console.log(token);
   const handleOnchange = (e) => {
     let { name, value } = e.target;
     setUserLogin({
@@ -23,37 +23,58 @@ const Login = () => {
     });
   };
 
-  const navigateHomepage=()=>{
-    navigate("/")
-  }
+  const navigateHomepage = () => {
+    navigate("/");
+  };
 
   const handleOnClick = () => {
-    fetch("", {
+    fetch("https://bitrix24.onrender.com//user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userLogin),
     })
-      .then((res) => res.json)
-      .then((res) => setToken(res));
+      .then((res) => res.json())
+      .then((res) => setToken({ msg: res.msg, token: res.token }));
   };
-
-  useEffect(() => {
-    if (token) {
-      navigate("/");
+  useEffect(()=>{
+    if (token.msg === "Wrong Credentials") {
+      toast({
+        title: "Wrong Credentials.",
+        status: "error",
+        duration: 1000,
+        isClosable: true,
+      });
     }
-  }, [token]);
+    if (token.token) {
+      toast({
+        title: "Login Success.",
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+      });
+      console.log(token.token);
+      localStorage.setItem("token", token.token);
+      navigate("/homepage");
+    }
+  },[token])
+
   return (
     <div>
-<div className={styles.register_container_main}>
+      <div className={styles.register_container_main}>
         <div className={styles.btrix_poster_container}>
           <div className={styles.btrix_logo_div}>
             <img
               src="https://www.bitrix24.net/bitrix/templates/new/images/bitrix24-logo-en.svg"
               alt="btrix_logo"
             />
-            <p onClick={navigateHomepage} className={styles.btrix_back_to_site_text}>back to site</p>
+            <p
+              onClick={navigateHomepage}
+              className={styles.btrix_back_to_site_text}
+            >
+              back to site
+            </p>
           </div>
           <div className={styles.btrix_text_container}>
             <h4 className={styles.btrix_text_set_main}>
@@ -64,7 +85,7 @@ const Login = () => {
         </div>
         <div className={styles.btrix_register_container}>
           <div className={styles.btrix_registration_text_div}>
-            <h3>Bitrix Registration</h3>
+            <h3>Bitrix Login</h3>
           </div>
           <div className={styles.btrix_email_password_container}>
             <p className={styles.btrix_email_password_text_set}>Enter email</p>
@@ -93,14 +114,13 @@ const Login = () => {
                   onClick={handleOnClick}
                   className={styles.btrix_register_btn}
                 >
-                  register for free
+                  Login
                 </button>
               </div>
             ) : (
               <div className={styles.btrix_register_btn_div}>
                 <button
                   disabled={true}
-                  onClick={handleOnClick}
                   className={styles.btrix_register_btn_disabled}
                 >
                   login
@@ -111,7 +131,7 @@ const Login = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

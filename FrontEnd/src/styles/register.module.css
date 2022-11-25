@@ -1,3 +1,7 @@
+*{
+    font-family: Montserrat,sans-serif
+}
+
 .register_container_main{
     width: 100%;
     height: 655px;
@@ -48,10 +52,6 @@
     width: 55%;
     padding-left: 8%;
     padding-right: 5%;
-
-    border: 1px solid black;
-
-
 }
 .btrix_registration_text_div{
     border-bottom: 1px solid #eeeff0;
@@ -84,6 +84,16 @@
     border-top: 1px solid #eeeff0;
     text-align: left;
     margin-top: 5%;
+}
+.set_err_msg{
+    display:flex;
+    padding: 5px;
+    color:red;
+}
+.set_err_text{
+    padding: 5px;
+    padding-top:8px;
+    font-size: 18px;
 }
 .btrix_register_btn{
     text-transform: uppercase;
