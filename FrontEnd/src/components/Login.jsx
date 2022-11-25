@@ -111,8 +111,8 @@ const Login = () => {
               value={userLogin.password}
             />
             {userLogin.email.includes("@") &&
-            userLogin.email[0] != "@" &&
-            userLogin.email[userLogin.email.length - 1] != "@" ? (
+            userLogin.email[0] !== "@" &&
+            userLogin.email[userLogin.email.length - 1] !== "@" ? (
               <div className={styles.btrix_register_btn_div}>
                 <button
                   onClick={handleOnClick}

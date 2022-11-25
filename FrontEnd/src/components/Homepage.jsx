@@ -68,9 +68,8 @@ const Homepag = () => {
           </Box>
           <Box className="gifs">
             <img
-              // src="https://www.bitrix24.in/upload/optimizer/converted/images/content_en/screens/main/header_banner/hr.1366w.png.webp?1664359517000"
-              // alt=""
-              src="https://raw.githubusercontent.com/masai-projects/block-19-construct-week-projects-brawny-base-7995/main/FrontEnd/src/components/posst.png?token=GHSAT0AAAAAABY45NVLG6GVFKOANOZVEAAQYZUXZIA"
+              src="https://www.bitrix24.in/upload/optimizer/converted/images/content_en/screens/main/header_banner/hr.1366w.png.webp?1664359517000"
+              alt=""
             />
           </Box>
         </Box>
