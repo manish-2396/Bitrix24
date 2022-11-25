@@ -30,6 +30,7 @@ userController.post("/signup", async (req, res) => {
 
 userController.post("/login", async (req, res) => {
 	const { email, password } = req.body;
+	console.log(email)
 
 	const user = await UserModel.findOne({ email: email });
 	if (!user) {
@@ -43,7 +44,7 @@ userController.post("/login", async (req, res) => {
 		if (result) {
 			const token = jwt.sign(
 				{ userId: user.email },
-				process.env.SECRET_KEY
+				"Krishna"
 			);
 			console.log(token);
 			res.send({ msg: "Login Successfully", token: token });

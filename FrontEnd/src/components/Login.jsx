@@ -13,8 +13,8 @@ const Login = () => {
   const [token, setToken] = useState({ msg: "", token: "" });
   const toast = useToast();
   const navigate = useNavigate();
-  console.log(userLogin);
-  console.log(token);
+  // console.log(userLogin);
+  // console.log(token);
   const handleOnchange = (e) => {
     let { name, value } = e.target;
     setUserLogin({
@@ -28,7 +28,8 @@ const Login = () => {
   };
 
   const handleOnClick = () => {
-    fetch("https://bitrix24.onrender.com//user/login", {
+    console.log(userLogin)
+    fetch("https://bitrix24.onrender.com/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +37,10 @@ const Login = () => {
       body: JSON.stringify(userLogin),
     })
       .then((res) => res.json())
-      .then((res) => setToken({ msg: res.msg, token: res.token }));
+      .then((res) => {
+        console.log(res)
+        setToken({ msg: res.msg, token: res.token })
+      }).catch((err)=> console.log(err));
   };
   useEffect(()=>{
     if (token.msg === "Wrong Credentials") {
